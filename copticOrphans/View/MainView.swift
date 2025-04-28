@@ -8,8 +8,31 @@
 import SwiftUI
 
 struct MainView: View {
+    
+    @State private var err : String = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("You Logged In Succefully")
+            
+            Button{
+                Task{
+                    do{
+                        try await AuthView().logout()
+                    } catch let e {
+                        
+                        err = e.localizedDescription
+                    }
+                }
+            } label: {
+                Text("Log Out").padding(8)
+            }.buttonStyle(.borderedProminent)
+            
+            Text(err).foregroundColor(.red).font(.caption)
+            
+            
+        }
+        .padding()
     }
 }
 
