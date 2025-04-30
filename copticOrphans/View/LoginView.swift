@@ -17,7 +17,8 @@ struct LoginView: View {
     @State private var password = ""
     @State private var loginError = ""
     @State private var isLoggedIn = false
-    @State private var vm = AuthView()
+    @State private var showSignupSheet = false
+    @State private var vm = AuthViewModel()
     
     var body: some View {
         NavigationStack{
@@ -39,6 +40,14 @@ struct LoginView: View {
                         .frame(width: 200, height: 50)
                         .background(Color.blue)
                         .cornerRadius(10)
+                }
+                
+                HStack {
+                    Text("Don't have an account?")
+                    Button("Sign Up") {
+                        showSignupSheet = true
+                    }
+                    .foregroundColor(.blue)
                 }
                 
                 GoogleSignInButton(viewModel: GoogleSignInButtonViewModel(scheme: .light)){
@@ -63,11 +72,15 @@ struct LoginView: View {
                 
             }
             .padding()
-            
+            .sheet(isPresented: $showSignupSheet) {
+                SignUpView()
+                    .presentationDetents([.medium, .large])
+            }
             
         }
     }
     
+    //MARK: - Login
     func login() {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             

@@ -10,9 +10,13 @@ import Firebase
 import FirebaseAuth
 import GoogleSignIn
 
-class AuthView : ObservableObject {
+class AuthViewModel : ObservableObject {
+    @Published var email = ""
+    @Published var password = ""
+    @Published var errorMessage: String?
     @Published var isSignedIn: Bool = false
     
+    //MARK: - Sign In Google
     func signInWithGoogle() {
         
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
@@ -47,6 +51,23 @@ class AuthView : ObservableObject {
         
     }
     
+    //MARK: - Sign Up
+    func signUp(onSuccess: @escaping () -> Void) {
+        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    self.errorMessage = error.localizedDescription
+                    return
+                }
+                
+                self.errorMessage = nil
+                self.isSignedIn = true
+                onSuccess()
+            }
+        }
+    }
+    
+    //MARK: - Logout
     func logout () async throws {
         GIDSignIn.sharedInstance.signOut()
         try Auth.auth().signOut()

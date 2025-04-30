@@ -18,7 +18,7 @@ struct MainView: View {
             Button{
                 Task{
                     do{
-                        try await AuthView().logout()
+                        try await AuthViewModel().logout()
                     } catch let e {
                         
                         err = e.localizedDescription
