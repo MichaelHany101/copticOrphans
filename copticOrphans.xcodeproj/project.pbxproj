@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0421002A2DC2DD8400F47497 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 042100292DC2DD8400F47497 /* FacebookCore */; };
+		0421002C2DC2DD8400F47497 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 0421002B2DC2DD8400F47497 /* FacebookLogin */; };
 		04419A642DC2790B000B8A51 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 04419A632DC2790B000B8A51 /* Alamofire */; };
 		04A08C232DBEECBC000096FD /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 04A08C222DBEECBC000096FD /* FirebaseAuth */; };
 		04A08C262DBEEE8B000096FD /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 04A08C252DBEEE8B000096FD /* GoogleSignIn */; };
@@ -44,6 +46,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				04A08C282DBEEE8B000096FD /* GoogleSignInSwift in Frameworks */,
+				0421002A2DC2DD8400F47497 /* FacebookCore in Frameworks */,
+				0421002C2DC2DD8400F47497 /* FacebookLogin in Frameworks */,
 				04419A642DC2790B000B8A51 /* Alamofire in Frameworks */,
 				04A08C232DBEECBC000096FD /* FirebaseAuth in Frameworks */,
 				04A08C262DBEEE8B000096FD /* GoogleSignIn in Frameworks */,
@@ -93,6 +97,8 @@
 				04A08C252DBEEE8B000096FD /* GoogleSignIn */,
 				04A08C272DBEEE8B000096FD /* GoogleSignInSwift */,
 				04419A632DC2790B000B8A51 /* Alamofire */,
+				042100292DC2DD8400F47497 /* FacebookCore */,
+				0421002B2DC2DD8400F47497 /* FacebookLogin */,
 			);
 			productName = copticOrphans;
 			productReference = 04A08C102DBEEC5D000096FD /* copticOrphans.app */;
@@ -126,6 +132,7 @@
 				04A08C212DBEECBC000096FD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				04A08C242DBEEE8B000096FD /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				04419A622DC2790B000B8A51 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				042100282DC2DD8400F47497 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 04A08C112DBEEC5D000096FD /* Products */;
@@ -359,6 +366,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		042100282DC2DD8400F47497 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.1.0;
+			};
+		};
 		04419A622DC2790B000B8A51 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -386,6 +401,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		042100292DC2DD8400F47497 /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 042100282DC2DD8400F47497 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
+		};
+		0421002B2DC2DD8400F47497 /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 042100282DC2DD8400F47497 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
+		};
 		04419A632DC2790B000B8A51 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 04419A622DC2790B000B8A51 /* XCRemoteSwiftPackageReference "Alamofire" */;
