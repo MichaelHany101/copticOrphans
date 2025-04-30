@@ -10,11 +10,39 @@ import SwiftUI
 struct MainView: View {
     
     @State private var err : String = ""
+    @StateObject private var viewModel = RepositoriesViewModel()
     
     var body: some View {
         VStack {
-            Text("You Logged In Succefully")
+            //MARK: - Text Field
+            TextField("Search Repositories...", text: $viewModel.searchQuery)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
             
+            //MARK: - List
+            List {
+                ForEach(viewModel.repositories) { repo in
+                    VStack(alignment: .leading) {
+                        Text(repo.name).font(.headline)
+                        if let desc = repo.description {
+                            Text(desc).font(.subheadline).foregroundColor(.gray)
+                        }
+                        Text(repo.html_url)
+                            .font(.caption)
+                            .foregroundColor(.blue)
+                    }
+                    .onAppear {
+                        if repo == viewModel.repositories.last {
+                            viewModel.search()                        }
+                    }
+                }
+                
+                if viewModel.isLoading {
+                    ProgressView().frame(maxWidth: .infinity, alignment: .center)
+                }
+            }
+            
+            //MARK: - Logout Button
             Button{
                 Task{
                     do{

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04419A642DC2790B000B8A51 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 04419A632DC2790B000B8A51 /* Alamofire */; };
 		04A08C232DBEECBC000096FD /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 04A08C222DBEECBC000096FD /* FirebaseAuth */; };
 		04A08C262DBEEE8B000096FD /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 04A08C252DBEEE8B000096FD /* GoogleSignIn */; };
 		04A08C282DBEEE8B000096FD /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 04A08C272DBEEE8B000096FD /* GoogleSignInSwift */; };
@@ -43,6 +44,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04A08C282DBEEE8B000096FD /* GoogleSignInSwift in Frameworks */,
+				04419A642DC2790B000B8A51 /* Alamofire in Frameworks */,
 				04A08C232DBEECBC000096FD /* FirebaseAuth in Frameworks */,
 				04A08C262DBEEE8B000096FD /* GoogleSignIn in Frameworks */,
 			);
@@ -90,6 +92,7 @@
 				04A08C222DBEECBC000096FD /* FirebaseAuth */,
 				04A08C252DBEEE8B000096FD /* GoogleSignIn */,
 				04A08C272DBEEE8B000096FD /* GoogleSignInSwift */,
+				04419A632DC2790B000B8A51 /* Alamofire */,
 			);
 			productName = copticOrphans;
 			productReference = 04A08C102DBEEC5D000096FD /* copticOrphans.app */;
@@ -122,6 +125,7 @@
 			packageReferences = (
 				04A08C212DBEECBC000096FD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				04A08C242DBEEE8B000096FD /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				04419A622DC2790B000B8A51 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 04A08C112DBEEC5D000096FD /* Products */;
@@ -355,6 +359,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		04419A622DC2790B000B8A51 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
 		04A08C212DBEECBC000096FD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -374,6 +386,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		04419A632DC2790B000B8A51 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04419A622DC2790B000B8A51 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		04A08C222DBEECBC000096FD /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 04A08C212DBEECBC000096FD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
