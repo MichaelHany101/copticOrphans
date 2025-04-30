@@ -13,6 +13,7 @@ struct SignUpView: View {
     
     var body: some View {
         VStack(spacing: 20) {
+            //MARK: - Email & Password
             TextField("Email", text: $viewModel.email)
                 .keyboardType(.emailAddress)
                 .textContentType(.emailAddress)
@@ -27,6 +28,7 @@ struct SignUpView: View {
                 .background(Color(.systemGray6))
                 .cornerRadius(8)
 
+            //MARK: - Button
             Button(action: {
                 viewModel.signUp {
                     dismiss()

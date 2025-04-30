@@ -22,7 +22,7 @@ struct MainView: View {
             //MARK: - List
             List {
                 ForEach(viewModel.repositories) { repo in
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 4) {
                         Text(repo.name).font(.headline)
                         if let desc = repo.description {
                             Text(desc).font(.subheadline).foregroundColor(.gray)
@@ -61,6 +61,16 @@ struct MainView: View {
             
         }
         .padding()
+        
+        .alert(isPresented: $viewModel.showErrorAlert) {
+            Alert(
+                title: Text("Network Error"),
+                message: Text(viewModel.errorMessage ?? "Something went wrong."),
+                dismissButton: .default(Text("Retry")) {
+                    viewModel.search()
+                }
+            )
+        }
     }
 }
 
